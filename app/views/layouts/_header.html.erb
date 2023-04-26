@@ -1,0 +1,40 @@
+<nav style="background-color: #000; display: flex; align-items: center" class="navbar  navbar-static-top">
+
+  <div class="container-fluid">
+
+  <div>
+    <ul class="ul-m">
+
+      <% if !user_signed_in? %>
+        <li>
+          <%= link_to 'Entrar', entrar_path %>
+      </li>
+       <li>
+          <%= link_to 'Nova Conta', cadastro_path %>
+        </li>
+      <% else %>
+        
+        <li style="margin-right: 30px">
+          <%= link_to 'Minha Pagina', user_posts_path(current_user) %>
+        </li>
+        <li style="margin-right: 30px">
+          <%= link_to 'Editar', edit_user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'Sair', sair_path, method: :delete %>
+        </li>
+        <li style="margin-right: 100px;" role="separator"></li>
+        <li style="color: #fff;">
+            <%= current_user.name %> <span class="caret"></span>
+        </li>
+        
+
+      <% end %>
+
+    </ul>
+
+  </div>
+
+  </div>
+
+</nav>

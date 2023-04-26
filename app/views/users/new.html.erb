@@ -1,0 +1,25 @@
+<h1 style="text-align:center;" >Cadastro</h1>
+<div class="row">
+<style>
+  .btn-m {
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    background-color: #F50F55;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    font-weight: bold;
+  }
+  .btn-m:hover {
+    opacity: 0.6;
+  }
+</style>
+
+  <div class="container">
+    <%= form_for @user do |f| %>
+      <%= render 'fields', f: f %>
+
+      <%= f.submit 'Cadastrar', class: 'btn-m' %>
+    <% end %>
+  </div>
+</div>

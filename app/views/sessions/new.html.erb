@@ -1,0 +1,45 @@
+<style>
+  i{
+    color: #831
+  }
+  .input-m {
+    padding: 10px 5px !important;
+    width: 100%;
+  }
+  .btn-m {
+    width: 100%;
+    padding: 10px 0;
+    color: #FFF;
+    background-color: #F50F55;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .input-m:hover{
+    border: 2px solid #801;
+  }
+</style>
+<h1 style="text-align:center;">Entrar</h1>
+<div class="container">
+  <div class="col-xs-12">
+    
+  </div>
+
+  <div class="">
+    <%= form_for :session, url: entrar_path, method: :post do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email %> <i>*</i>
+        <%= f.email_field :email, placeholder: 'Email', class: 'input-m' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %> <i>*</i>
+        <%= f.password_field :password, placeholder: 'Senha', class: 'input-m' %>
+      </div>
+      
+
+      <%= f.submit 'Entrar', class: 'btn-m' %>
+
+    <% end %>
+  </div>
+</div>

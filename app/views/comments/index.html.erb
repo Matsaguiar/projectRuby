@@ -1,0 +1,44 @@
+<h1>Meus Comentários</h1>
+<div class="conteiner">
+
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Observação</th>
+          <th colspan="2">
+            Ações
+            <%= link_to 'Novo Comentário', new_user_comment_path(current_post), class: 'btn btn-success' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @comments.empty? %>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>Sem Comentários Cadastrados.</h3>
+              <%= link_to 'click aqui', new_user_comment_path(current_post) %> para cadastrar um novo comentário
+            </td>
+          </tr>
+        <% end %>
+        <% @comments.each do |c| %>
+        <tr>
+          <td>
+            <%= c.name %>
+          </td>
+          <td>
+            <%= c.observation %>
+          </td>
+          <td>
+            <%= link_to 'Editar', edit_post_comment_path(current_post, c), class: 'btn btn-warning' %>
+          </td>
+          <td>
+            <%= button_to 'Excluir', post_comment_path(current_post, c), method: :delete, class: 'btn btn-danger', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
